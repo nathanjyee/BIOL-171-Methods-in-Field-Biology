@@ -1,0 +1,54 @@
+> setwd("~/Desktop/F'23/Methods in Field Bio/Data Analysis (R)/Lab 11")
+[1] "/Users/nathanwhy/Desktop/F'23/Methods in Field Bio/Data Analysis (R)/Lab 11"
+> massdata <- read.delim("bmassdata171.txt", header = TRUE, sep = "\t", as.is = TRUE)
+
+> malebmass <- subset(massdata, sex == "M")
+
+> femalebmass<-subset(massdata, sex=="F")
+>
+> hist(malebmass$b.mass.g, xlim=c(0.125, 0.35))
+
+> hist(femalebmass$b.mass.g, xlim=c(0.125, 0.35))
+> hist(femalebmass$b.mass.g, xlim=c(0.125, 0.35)),xlab="Female body mass (g)"
+> hist(femalebmass$b.mass.g, xlim = c(0.125, 0.35), xlab = "Female body mass (g)")
+
+> window(hist(malebmass$b.mass.g, xlim=c(0.125, 0.35)))
+> xlab="Male body mass (g)"
+> hist(malebmass$b.mass.g, xlim = c(0.125, 0.35), xlab = "Male body mass (g)")
+> hist(malebmass$b.mass.g, xlim = c(0.125, 0.35), xaxt=n
+"hist(malebmass$b.mass.g, xlim = c(0.125, 0.35), xaxt="n"
+axis"
+> hist(malebmass$b.mass.g, xlim = c(0.125, 0.35), xaxt = "n")
+> axis(1, pos = 0)
+> 
+"hist(femalebmass$b.mass.g, xlim = c(0.125, 0.35), xaxt="n"
+axis"
+> hist(femalebmass$b.mass.g, xlim = c(0.125, 0.35), xaxt = "n")
+> axis(1, pos = 0)
+> 
+> 
+> boxplot(massdata$b.mass.g ~ massdata$sex, xlab="sex", ylab="Body mass (g)")
+> xlab="Sex"
+> boxplot(massdata$b.mass.g ~ massdata$sex, xlab="Sex", ylab="Body mass (g)")
+> var(malebmass$b.mass.g,na.rm = T)
+[1] 0.0005335588
+> sd(malebmass$b.mass.g, na.rm = T)
+[1] 0.02309889
+> var(femalebmass$b.mass.g,na.rm = T)
+[1] 0.001362711
+> sd(femalebmass$b.mass.g, na.rm = T)
+[1] 0.03691492
+> t.test(massdata$b.mass.g ~massdata$sex, paired = FALSE, alternative = c ("two.sided"))
+
+	Welch Two Sample t-test
+
+data:  massdata$b.mass.g by massdata$sex
+t = 7.3015, df = 13.228, p-value = 5.419e-06
+alternative hypothesis: true difference in means between group F and group M is not equal to 0
+95 percent confidence interval:
+ 0.06661723 0.12246512
+sample estimates:
+mean in group F mean in group M 
+      0.2826000       0.1880588 
+
+> 
